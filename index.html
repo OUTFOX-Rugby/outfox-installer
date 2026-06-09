@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Outfox Controller Updater</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #0e1116;
+    color: #e6edf3;
+    padding: 24px;
+  }
+  .card {
+    width: 100%;
+    max-width: 460px;
+    background: #161b22;
+    border: 1px solid #283039;
+    border-radius: 14px;
+    padding: 32px 28px;
+    text-align: center;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+  }
+  h1 { font-size: 22px; margin: 0 0 6px; }
+  .sub { color: #8b949e; font-size: 14px; margin: 0 0 24px; }
+  .btn {
+    display: inline-block;
+    background: #2ea043;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 14px 28px;
+    border-radius: 10px;
+    transition: background .15s ease;
+  }
+  .btn:hover { background: #3fb950; }
+  .status { margin: 18px 0 0; font-size: 14px; color: #8b949e; min-height: 20px; }
+  .steps {
+    text-align: left;
+    margin: 26px 0 0;
+    padding: 18px 20px;
+    background: #0e1116;
+    border: 1px solid #283039;
+    border-radius: 10px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #c9d1d9;
+  }
+  .steps b { color: #e6edf3; }
+  .steps ol { margin: 8px 0 0; padding-left: 20px; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>Outfox Controller Updater</h1>
+    <p class="sub">Self-heals your 7 wired controllers</p>
+
+    <a id="download" class="btn" href="Outfox-Installer.bat" download="Outfox Installer.bat">Download the updater</a>
+
+    <p class="status" id="status">Your download should start automatically&hellip;</p>
+
+    <div class="steps">
+      <b>After it downloads:</b>
+      <ol>
+        <li>If your browser warns about the file, choose <b>Keep</b>.</li>
+        <li>Double-click <b>Outfox Installer.bat</b>.</li>
+        <li>On the blue Windows screen, click <b>More info &rarr; Run anyway</b>.</li>
+        <li>When asked for permission, click <b>Yes</b>.</li>
+        <li>Wait for <b>"ALL DONE"</b>, then close the window.</li>
+      </ol>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('load', function () {
+      var link = document.getElementById('download');
+      var status = document.getElementById('status');
+      try {
+        link.click();
+        status.textContent = 'Download started. If nothing happened, use the button above.';
+      } catch (e) {
+        status.textContent = 'Please use the button above to download.';
+      }
+    });
+  </script>
+</body>
+</html>
