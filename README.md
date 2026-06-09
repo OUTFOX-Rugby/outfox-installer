@@ -2,7 +2,7 @@
 
 One-click hosting for the Outfox controller self-heal installer.
 
-**Client link:** https://outfox-rugby.github.io/outfox-updater/
+**Client link:** https://outfox-rugby.github.io/outfox-installer/
 
 Visiting that URL automatically downloads `Outfox Installer.bat`, which force-binds
 and self-heals the 7 wired Xbox controllers (WinUSB + watchdog scheduled tasks).
