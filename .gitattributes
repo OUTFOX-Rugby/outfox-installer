@@ -1,4 +1,0 @@
-# The installer is a Windows batch file with an embedded base64 payload.
-# Git must NEVER alter its bytes or line endings, or cmd.exe parsing breaks.
-*.bat -text
-Outfox-Installer.bat -text

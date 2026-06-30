@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Outfox Controller Updater</title>
+<title>OutFox Installer</title>
 <style>
   :root { color-scheme: dark; }
   * { box-sizing: border-box; }
@@ -56,26 +56,33 @@
   }
   .steps b { color: #e6edf3; }
   .steps ol { margin: 8px 0 0; padding-left: 20px; }
+  .steps .support { margin: 14px 0 0; color: #8b949e; }
+  .steps code { color: #e6edf3; word-break: break-all; background: #161b22; padding: 1px 5px; border-radius: 5px; }
 </style>
 </head>
 <body>
   <div class="card">
-    <h1>Outfox Controller Updater</h1>
-    <p class="sub">Self-heals your 7 wired controllers</p>
+    <h1>OutFox Installer</h1>
+    <p class="sub">Everything you need in one download &mdash; game, controller service, and drivers.</p>
 
-    <a id="download" class="btn" href="Outfox-Installer.bat" download="Outfox Installer.bat">Download the updater</a>
+    <a id="download" class="btn" href="https://github.com/OUTFOX-Rugby/outfox-installer/releases/latest/download/outfox-setup.zip" download="outfox-setup.zip">Download OutFox</a>
 
-    <p class="status" id="status">Your download should start automatically&hellip;</p>
+    <p class="status" id="status">Your download should start automatically (about 72&nbsp;MB)&hellip;</p>
 
     <div class="steps">
-      <b>After it downloads:</b>
+      <b>OutFox Installer Steps:</b>
       <ol>
-        <li>If your browser warns about the file, choose <b>Keep</b>.</li>
-        <li>Double-click <b>Outfox Installer.bat</b>.</li>
-        <li>On the blue Windows screen, click <b>More info &rarr; Run anyway</b>.</li>
-        <li>When asked for permission, click <b>Yes</b>.</li>
-        <li>Wait for <b>"ALL DONE"</b>, then close the window.</li>
+        <li>Close the OutFox game/app if it's open, and have controllers 1 to 7 plugged into the wires. You do not need to turn them on, and keep 8 to 15 powered off.</li>
+        <li>Extract the <b>outfox-setup.zip</b> file once it's downloaded with right-click &rarr; <b>Extract All</b>.</li>
+        <li>Open the extracted folder and double-click <b>Install-OutFox.bat</b>. Click <b>Yes</b> on the Windows security (UAC) prompt and let it run to the finish screen, then close that window.</li>
+        <li>Restart the PC.</li>
+        <li>After it boots, install once more: double-click <b>Install-OutFox.bat</b> again, approve the prompt, let it finish.</li>
+        <li>Restart the PC again.</li>
+        <li>Now power on the controllers &mdash; wireless ones (8 to 15) first, then the wired ones (1 to 7).</li>
+        <li>If any controller turns on and then switches off, turn it off and on once more (sometimes one needs a second try) and give it ~30 seconds to settle.</li>
+        <li>You should reach all 15 connected and stable, with no lights flashing.</li>
       </ol>
+      <p class="support">If anything's still wrong, send us this one file so we can check:<br><code>C:\ProgramData\OutFox\ControllerService\service.log</code> (it appears as just "service" in the Windows folder explorer).</p>
     </div>
   </div>
 
