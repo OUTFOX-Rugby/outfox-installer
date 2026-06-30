@@ -5,7 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>OutFox Installer</title>
 <style>
-  :root { color-scheme: dark; }
+  :root {
+    color-scheme: light;
+    --bg: #F5F5F5;
+    --card: #FFFFFF;
+    --text: #1A1A1A;
+    --text-2: #5A5A5A;
+    --muted: #9E9E9E;
+    --border: #E6E6E6;
+    --gold: #C28E3A;
+    --gold-dark: #A9772E;
+    --green: #2E7D32;
+  }
   * { box-sizing: border-box; }
   body {
     margin: 0;
@@ -14,54 +25,97 @@
     align-items: center;
     justify-content: center;
     font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: #0e1116;
-    color: #e6edf3;
+    background: var(--bg);
+    color: var(--text);
     padding: 24px;
   }
   .card {
     width: 100%;
-    max-width: 460px;
-    background: #161b22;
-    border: 1px solid #283039;
-    border-radius: 14px;
-    padding: 32px 28px;
+    max-width: 480px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 36px 32px;
     text-align: center;
-    box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+    box-shadow: 0 10px 30px rgba(26, 26, 26, 0.08);
   }
-  h1 { font-size: 22px; margin: 0 0 6px; }
-  .sub { color: #8b949e; font-size: 14px; margin: 0 0 24px; }
+  .logo { width: auto; height: 150px; margin: 0 auto 18px; display: block; }
+  h1 { font-size: 24px; font-weight: 700; margin: 0 0 6px; letter-spacing: -0.2px; }
+  .sub { color: var(--text-2); font-size: 14.5px; line-height: 1.5; margin: 0 auto 26px; max-width: 360px; }
   .btn {
     display: inline-block;
-    background: #2ea043;
-    color: #fff;
+    background: linear-gradient(180deg, #D29C44, var(--gold-dark));
+    color: #1A1A1A;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 16px;
-    padding: 14px 28px;
-    border-radius: 10px;
-    transition: background .15s ease;
+    padding: 15px 34px;
+    border-radius: 12px;
+    border: 1px solid var(--gold-dark);
+    box-shadow: 0 4px 12px rgba(194, 142, 58, 0.32);
+    transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
   }
-  .btn:hover { background: #3fb950; }
-  .status { margin: 18px 0 0; font-size: 14px; color: #8b949e; min-height: 20px; }
+  .btn:hover { filter: brightness(1.05); box-shadow: 0 6px 16px rgba(194, 142, 58, 0.42); transform: translateY(-1px); }
+  .btn:active { transform: translateY(0); }
+  .status { margin: 16px 0 0; font-size: 13.5px; color: var(--muted); min-height: 18px; }
   .steps {
     text-align: left;
-    margin: 26px 0 0;
-    padding: 18px 20px;
-    background: #0e1116;
-    border: 1px solid #283039;
-    border-radius: 10px;
-    font-size: 13.5px;
-    line-height: 1.6;
-    color: #c9d1d9;
+    margin: 28px 0 0;
+    padding: 22px 22px 20px;
+    background: #FAFAFA;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--text-2);
   }
-  .steps b { color: #e6edf3; }
-  .steps ol { margin: 8px 0 0; padding-left: 20px; }
-  .steps .support { margin: 14px 0 0; color: #8b949e; }
-  .steps code { color: #e6edf3; word-break: break-all; background: #161b22; padding: 1px 5px; border-radius: 5px; }
+  .steps-title { color: var(--text); font-weight: 700; font-size: 14.5px; margin: 0 0 14px; }
+  .steps b { color: var(--text); }
+  .steps ol { list-style: none; counter-reset: step; margin: 0; padding: 0; }
+  .steps li {
+    counter-increment: step;
+    position: relative;
+    padding-left: 38px;
+    margin-bottom: 13px;
+  }
+  .steps li:last-child { margin-bottom: 0; }
+  .steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: -1px;
+    width: 25px;
+    height: 25px;
+    background: var(--gold);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 12.5px;
+  }
+  .support {
+    margin: 18px 0 0;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.55;
+  }
+  .support code {
+    color: var(--text);
+    word-break: break-all;
+    background: #EFEFEF;
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-size: 12.5px;
+  }
 </style>
 </head>
 <body>
   <div class="card">
+    <img class="logo" src="outfox-logo.png" alt="OutFox Rugby">
     <h1>OutFox Installer</h1>
     <p class="sub">Everything you need in one download &mdash; game, controller service, and drivers.</p>
 
@@ -70,7 +124,7 @@
     <p class="status" id="status">Your download should start automatically (about 72&nbsp;MB)&hellip;</p>
 
     <div class="steps">
-      <b>OutFox Installer Steps:</b>
+      <p class="steps-title">OutFox Installer Steps</p>
       <ol>
         <li>Close the OutFox game/app if it's open, and have controllers 1 to 7 plugged into the wires. You do not need to turn them on, and keep 8 to 15 powered off.</li>
         <li>Extract the <b>outfox-setup.zip</b> file once it's downloaded with right-click &rarr; <b>Extract All</b>.</li>
